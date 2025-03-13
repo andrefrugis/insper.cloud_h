@@ -17,9 +17,9 @@ sudo snap install maas --channel=3.5/Stable
 ```
 
 ![Tela do Dashboard do MAAS](./maas.png)
-/// caption
+ caption
 Dashboard do MAAS
-///
+
 
 Conforme ilustrado acima, a tela inicial do MAAS apresenta um dashboard com informações sobre o estado atual dos servidores gerenciados. O dashboard é composto por diversos painéis, cada um exibindo informações sobre um aspecto específico do ambiente gerenciado. Os painéis podem ser configurados e personalizados de acordo com as necessidades do usuário.
 
@@ -30,7 +30,7 @@ Conforme ilustrado acima, a tela inicial do MAAS apresenta um dashboard com info
 
 ### 2.Verificar acessibilidade na própria máquina: 
 ![Tela do Dashboard do MAAS](./2.png)
-///
+
 O comando: psql -U cloud -h 172.16.0.4 tasks. Faz o seguinte:
 psql: Inicia o cliente interativo do PostgreSQL.
 -U cloud: Específica o usuário do banco de dados, que no caso é cloud.
@@ -38,22 +38,22 @@ psql: Inicia o cliente interativo do PostgreSQL.
 tasks: Define o nome do banco de dados ao qual o usuário cloud tentará se conectar.
 Esse código foi executado dentro do Server1.
 Abaixo uma imagem da conexão bem sucedida: 
-///
+
 
 ### 3. Acessibilidade a partir da máquina main: 
 ![Tela do Dashboard do MAAS](./3.png)
-/// 
+ 
 Usando o mesmo comando para verificar a conexão interna, porém agora a partir da minha máquina main. 
 Instalei o client na main usando o comando:
 sudo apt update && sudo apt install postgresql-client -y
-///
+
 
 ### 4. Porta em que o serviço está funcionando:
 ![Tela do Dashboard do MAAS](./4.png)
-/// 
+ 
 Ao executar o nmap. Foi conferido que o serviço está rodando na porta 5432:
 5432/tcp open postgresql
-///
+
 
 ### Tarefa 2
 
@@ -93,26 +93,41 @@ Ao executar o nmap. Foi conferido que o serviço está rodando na porta 5432:
 ![Tela do Dashboard do MAAS](./18.png)  
 
 ### 3. Explicação da aplicação manual do Django:
-/// 
+ 
 a. Deploy feito pelo dashboard do maas - deploy por linha de comando não estava funcionando
 
 b. No ssh do server2 foi clonado o seguinte repositório: 
+
 git clone https://github.com/raulikeda/tasks.git
+
 c. dentro do diretorio tasks. Foi feita a instalação
-$ ./install.sh 
+
+./install.sh 
+
 d. reboot do server2
+
 sudo reboot
+
 e. testando o acesso:
+
 wget http://[IP server2]:8080/admin/
+
 f. Ao testar o acesso obtivemos erros de conexão:
+
 mudança no etc/hosts
+
 172.16.0.4 server1 (onde estava instalado o postgres)
+
 g. Tunel ssh:
+
 conectanmos no maas utilizando: ssh cloud@10.103.0.X -L 8001:[IP server2]:8080
+
 h. acesso no django feito: 
+
 user: cloud
+
 senha: cloud
-///
+
 
 Exemplo de diagrama
 
