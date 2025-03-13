@@ -29,15 +29,21 @@ Conforme ilustrado acima, a tela inicial do MAAS apresenta um dashboard com info
 
 
 ### 2.Verificar acessibilidade na própria máquina: 
-![Tela do Dashboard do MAAS](./2.png)
 
-O comando: psql -U cloud -h 172.16.0.4 tasks. Faz o seguinte:
+Foi executado o seguinte comando 
+``` bash
+ psql -U cloud -h 172.16.0.4 tasks
+```
 psql: Inicia o cliente interativo do PostgreSQL.
+
 -U cloud: Específica o usuário do banco de dados, que no caso é cloud.
+
 -h 172.16.0.4: Define o host (endereço IP) do servidor PostgreSQL ao qual você deseja se conectar. Neste caso, a conexão será feita para o IP 172.16.0.4, que pode ser um outro servidor na rede ou até mesmo o próprio servidor se esse for o IP dele.
+
 tasks: Define o nome do banco de dados ao qual o usuário cloud tentará se conectar.
+
 Esse código foi executado dentro do Server1.
-Abaixo uma imagem da conexão bem sucedida: 
+![Tela do Dashboard do MAAS](./2.png)
 
 
 ### 3. Acessibilidade a partir da máquina main: 
