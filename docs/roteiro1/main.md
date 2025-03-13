@@ -1,10 +1,10 @@
 ## Objetivo
 
-wugexvwuv
+Este Roteiro tem o objetivo a documentação e implementação de conceitos sobre uma plataforma de gerenciamento de hardware
 
 ## Montagem do Roteiro
 
-Os pontos "tarefas" são os passos que devem ser seguidos para a realização do roteiro. Eles devem ser claros e objetivos. Com evidências claras de que foram realizados.
+
 
 ### Tarefa 1
 
@@ -22,6 +22,13 @@ Dashboard do MAAS
 ///
 
 Conforme ilustrado acima, a tela inicial do MAAS apresenta um dashboard com informações sobre o estado atual dos servidores gerenciados. O dashboard é composto por diversos painéis, cada um exibindo informações sobre um aspecto específico do ambiente gerenciado. Os painéis podem ser configurados e personalizados de acordo com as necessidades do usuário.
+
+### 1. Verificar se está funcionando e se o status está ativo.
+
+![Tela do Dashboard do MAAS](./1.png)
+/// caption
+Dashboard do MAAS
+///
 
 ### Tarefa 2
 
