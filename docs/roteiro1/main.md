@@ -50,7 +50,7 @@ Esse código foi executado dentro do Server1.
 ![Tela do Dashboard do MAAS](./3.png)
  
 Usando o mesmo comando para verificar a conexão interna, porém agora a partir da minha máquina main. 
-Instalei o client na main usando o comando:
+Instalamos o client na main usando o comando:
 ``` bash
 sudo apt update && sudo apt install postgresql-client -y
 ```
@@ -139,6 +139,14 @@ senha: cloud
 
 ### Tarefa 4
 
+### 1. De um print da tela do Dashboard do MAAS com as 3 Maquinas e seus respectivos IPs.
+![Tela do Dashboard do MAAS](./19.png)  
+
+### 2.De um print da aplicacao Django, provando que voce está conectado ao server2 
+![Tela do Dashboard do MAAS](./20.png)  
+
+### 3.De um print da aplicacao Django, provando que voce está conectado ao server3 
+![Tela do Dashboard do MAAS](./21.png)  
 Exemplo de diagrama
 
 ```mermaid
