@@ -45,8 +45,9 @@ Abaixo uma imagem da conexão bem sucedida:
  
 Usando o mesmo comando para verificar a conexão interna, porém agora a partir da minha máquina main. 
 Instalei o client na main usando o comando:
+``` bash
 sudo apt update && sudo apt install postgresql-client -y
-
+```
 
 ### 4. Porta em que o serviço está funcionando:
 ![Tela do Dashboard do MAAS](./4.png)
@@ -97,21 +98,21 @@ Ao executar o nmap. Foi conferido que o serviço está rodando na porta 5432:
 a. Deploy feito pelo dashboard do maas - deploy por linha de comando não estava funcionando
 
 b. No ssh do server2 foi clonado o seguinte repositório: 
-
+``` bash
 git clone https://github.com/raulikeda/tasks.git
-
+```
 c. dentro do diretorio tasks. Foi feita a instalação
-
+``` bash
 ./install.sh 
-
+```
 d. reboot do server2
-
+``` bash
 sudo reboot
-
+```
 e. testando o acesso:
-
-wget http://[IP server2]:8080/admin/
-
+``` bash
+wget http://[172.16.0.9]:8080/admin/
+```
 f. Ao testar o acesso obtivemos erros de conexão:
 
 mudança no etc/hosts
@@ -120,14 +121,17 @@ mudança no etc/hosts
 
 g. Tunel ssh:
 
-conectanmos no maas utilizando: ssh cloud@10.103.0.X -L 8001:[IP server2]:8080
-
+conectanmos no maas utilizando: 
+``` bash
+ssh cloud@10.103.0.X -L 8001:[172.16.0.9]:8080
+```
 h. acesso no django feito: 
 
 user: cloud
 
 senha: cloud
 
+### Tarefa 4
 
 Exemplo de diagrama
 
