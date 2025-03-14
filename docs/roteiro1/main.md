@@ -152,7 +152,7 @@ Criando o tunel:
 Forçando o django a rodar na porta 8000 do server2:
 ![Tela do Dashboard do MAAS](./26.png)  
 
-forçando o django a rodar na porta 8000 do server3:
+Forçando o django a rodar na porta 8000 do server3:
 ![Tela do Dashboard do MAAS](./27.png)  
 
 Acessando os servers via localhost de um browser
