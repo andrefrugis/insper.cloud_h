@@ -2,26 +2,8 @@
 
 Este Roteiro tem o objetivo a documentação e implementação de conceitos sobre uma plataforma de gerenciamento de hardware
 
-## Montagem do Roteiro
-
-
 
 ### Tarefa 1
-
-Instalando o MAAS:
-
-<!-- termynal -->
-
-``` bash
-sudo snap install maas --channel=3.5/Stable
-```
-
-![Tela do Dashboard do MAAS](./maas.png)
- caption
-Dashboard do MAAS
-
-
-Conforme ilustrado acima, a tela inicial do MAAS apresenta um dashboard com informações sobre o estado atual dos servidores gerenciados. O dashboard é composto por diversos painéis, cada um exibindo informações sobre um aspecto específico do ambiente gerenciado. Os painéis podem ser configurados e personalizados de acordo com as necessidades do usuário.
 
 ### 1. Verificar se está funcionando e se o status está ativo.
 
@@ -70,7 +52,7 @@ Ao executar o nmap. Foi conferido que o serviço está rodando na porta 5432:
 ### 2.Da aba de imagens, com as imagens sincronizadas
 ![Tela do Dashboard do MAAS](./6.png)
 
-### 3. Cada máquina
+### 3. Testes de Hardware para cada máquina
 ### máquina 1:
 ![Tela do Dashboard do MAAS](./7.png)
 ![Tela do Dashboard do MAAS](./8.png)
@@ -99,7 +81,7 @@ Ao executar o nmap. Foi conferido que o serviço está rodando na porta 5432:
 ### 2.Aplicação Django
 ![Tela do Dashboard do MAAS](./18.png)  
 
-### 3. Explicação da aplicação manual do Django:
+### 3.Explicação da aplicação manual do Django:
  
 a. Deploy feito pelo dashboard do maas - deploy por linha de comando não estava funcionando
 
@@ -147,32 +129,43 @@ senha: cloud
 
 ### 3.De um print da aplicacao Django, provando que voce está conectado ao server3 
 ![Tela do Dashboard do MAAS](./21.png)  
-Exemplo de diagrama
 
-```mermaid
-architecture-beta
-    group api(cloud)[API]
+### 4. Explique qual diferenca entre instalar manualmente a aplicacao Django e utilizando o Ansible.
+Com o Ansible, a instalação é automatizada por meio de playbooks, garantindo consistência, rapidez e escalabilidade, ideal para múltiplos servidores. Enquanto a abordagem manual oferece mais controle ela exige uma instalação para cada máquina tornando-o menos escalável.
 
-    service db(database)[Database] in api
-    service disk1(disk)[Storage] in api
-    service disk2(disk)[Storage] in api
-    service server(server)[Server] in api
+### Tarefa 5.
 
-    db:L -- R:server
-    disk1:T -- B:server
-    disk2:T -- B:db
-```
+### 1. De um print da tela do Dashboard do MAAS com as 4 Maquinas e seus respectivos IPs.
+![Tela do Dashboard do MAAS](./22.png)  
 
-[Mermaid](https://mermaid.js.org/syntax/architecture.html){:target="_blank"}
+### 2.Altere o conteúdo da mensagem contida na função `index` do arquivo `tasks/views.py` de cada server para distinguir ambos os servers.
+server 2:
+![Tela do Dashboard do MAAS](./23.png)  
 
-## Questionário, Projeto ou Plano
+server 3: 
+![Tela do Dashboard do MAAS](./24.png)  
 
-Esse seção deve ser preenchida apenas se houver demanda do roteiro.
+### 3.Faça um `GET request` para o path que voce criou em urls.py para o Nginx e tire 2 prints das respostas de cada request, provando que voce está conectado ao server 4, que é o Proxy Reverso e que ele bate cada vez em um server diferente server2 e server3.
+Criando o tunel: 
+![Tela do Dashboard do MAAS](./25.png)  
+
+Forçando o django a rodar na porta 8000 do server2:
+![Tela do Dashboard do MAAS](./26.png)  
+
+forçando o django a rodar na porta 8000 do server3:
+![Tela do Dashboard do MAAS](./27.png)  
+
+Acessando os servers via localhost de um browser
+server 2:
+![Tela do Dashboard do MAAS](./28.png)  
+
+server 3:
+![Tela do Dashboard do MAAS](./29.png)  
 
 ## Discussões
 
-Quais as dificuldades encontradas? O que foi mais fácil? O que foi mais difícil?
+A instalação manual do PostgreSQL e Django foi direta, assim como o uso do SSH e MaaS CLI, facilitando o deploy inicial. No entanto, configurar DHCP, DNS e firewall exigiu atenção para garantir conectividade. O balanceamento de carga com Nginx foi desafiador, demandando ajustes nas regras de roteamento. Ferramentas como Ansible simplificaram o processo, tornando a implantação mais eficiente.
 
 ## Conclusão
 
-O que foi possível concluir com a realização do roteiro?
+A instalação manual ajudou a entender cada parte do processo, mas exigiu mais tempo e cuidado com detalhes. O Ansible simplificou o deploy, tornando-o repetível e confiável. O MaaS facilitou o gerenciamento das máquinas, mas configurar rede e balanceamento de carga exigiu mais testes e ajustes.
