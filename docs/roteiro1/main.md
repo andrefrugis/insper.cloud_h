@@ -54,7 +54,7 @@ Ao executar o nmap. Foi conferido que o serviço está rodando na porta 5432:
 
 ### 3. Testes de Hardware para cada máquina
 ### máquina 1:
-![Tela do Dashboard do MAAS](./7.png)
+![Tela do Dashboard do MAAS](./img.png)
 ![Tela do Dashboard do MAAS](./8.png)
 
 ### máquina 2:
